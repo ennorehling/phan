@@ -33,6 +33,9 @@ class IssueInstance
         $this->file = $file;
         $this->line = $line;
 
+        $template_parameters[] = $file;
+        $template_parameters[] = $line;
+
         // color_issue_message will interfere with some formatters, such as xml.
         if (Config::get()->color_issue_messages) {
             $this->message = self::generateColorizedMessage($issue, $template_parameters);
